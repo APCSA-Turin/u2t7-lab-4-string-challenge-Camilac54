@@ -9,7 +9,13 @@ public class StringProblems{
     // endsLy("y") → false
     // endsLy("oddy") → false
     public boolean endsLy(String x){
-            //implement code here
+        int length = x.length();
+        String end = x.substring(length - 2);
+        String str = "ly";
+
+        if (end.equals(str)) {
+            return true;
+        }
         return false;
     }
 
@@ -21,8 +27,14 @@ public class StringProblems{
     // conCat("dog", "cat") → "dogcat"
     // conCat("abc", "") → "abc"
     public String conCat(String s1, String s2){
-        //implement code here
-        return "";
+        String lastLetter = s1.substring(s1.length() - 1);
+        String firstLetter = s2.substring(0, 1);
+
+        if (lastLetter.equals(firstLetter)){
+            return (s1.substring(0, s1.length() - 1)) + s2;
+        } else {
+            return s1 + s2;
+        }
     }
 
     // Given a string, return a version without the first 2 chars. 
@@ -35,9 +47,28 @@ public class StringProblems{
     // deFront("abeep") -> "abeep"
     public String deFront(String s1){
         //implement code here
-        return "";
-    }
+        String firstLetter = s1.substring(0, 1);
+        String secondLetter = s1.substring(1, 2);
 
+        String desiredLttr = "a";
+        String desiredLttr2 = "b";
+
+        String finalString = " ";
+        if (firstLetter.equals(desiredLttr) || secondLetter.equals(desiredLttr2)){
+            if (firstLetter.equals(desiredLttr) && secondLetter.equals(desiredLttr2)) {
+                finalString = s1;
+            }
+           
+            if (firstLetter.equals(desiredLttr)){
+                finalString = s1.substring(0,1) + s1.substring(2);
+            }
+
+            if (secondLetter.equals(desiredLttr2)){
+                finalString = s1.substring(1);
+            }
+        }
+        return finalString;
+    }
     
     // Given a string, if the first or last chars are 'x', 
     // return the string without those 'x' chars, and otherwise 
