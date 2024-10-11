@@ -43,25 +43,18 @@ public class StringProblems{ //empty constructor public StringProblems(){}
     // deFront("abeep") -> "abeep" 
     public String deFront(String s1){
         //implement code here 
-        String firstLetter = s1.substring(0, 1); 
-        String secondLetter = s1.substring(1, 2); 
-        if (s1.length() >= 1 && s1.substring(0, 1).equals("a")){
+        String end = "";
+        if (s1.length() > 0){
+            if (s1.substring(0,1).equals("a")){
+                end += "a";
+            }
+            if (s1.length() > 1 && s1.substring(1, 2).equals("b")){
+                end += "b";
+            }
+
+            end += s1.substring(end.length());
 
         }
-        
-        if (firstLetter.equals("a") || secondLetter.equals("b")){
-            if (firstLetter.equals("a")){ 
-                return s1.substring(0,1) + s1.substring(2); 
-            } 
-            if (secondLetter.equals("b")){
-                return s1.substring(1); 
-            } 
-    
-            if (firstLetter.equals("a") && secondLetter.equals("b")) {
-            return s1; 
-            }
-        } 
-        return s1; 
 
 
     } 
