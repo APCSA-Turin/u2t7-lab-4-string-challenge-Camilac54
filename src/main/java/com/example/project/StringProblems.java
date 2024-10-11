@@ -19,12 +19,12 @@ public class StringProblems{ //empty constructor public StringProblems(){}
     // conCat("dog", "cat") → "dogcat" 
     // conCat("abc", "") → "abc" 
     public String conCat(String s1, String s2){ 
-        String lastLetter = s1.substring(s1.length() - 1); 
-        String firstLetter = s2.substring(0, 1); 
-
         if (s1.isEmpty() || s2.isEmpty()){
             return s1 + s2;
         }
+       
+        String lastLetter = s1.substring(s1.length() - 1); 
+        String firstLetter = s2.substring(0, 1); 
 
         if (firstLetter.equals(lastLetter)){
             return (s1.substring(0, s1.length() - 1)) + s2; 
@@ -45,6 +45,10 @@ public class StringProblems{ //empty constructor public StringProblems(){}
         //implement code here 
         String firstLetter = s1.substring(0, 1); 
         String secondLetter = s1.substring(1, 2); 
+        if (s1.length() >= 1 && s1.substring(0, 1).equals("a")){
+
+        }
+        
         if (firstLetter.equals("a") || secondLetter.equals("b")){
             if (firstLetter.equals("a")){ 
                 return s1.substring(0,1) + s1.substring(2); 
@@ -58,6 +62,8 @@ public class StringProblems{ //empty constructor public StringProblems(){}
             }
         } 
         return s1; 
+
+
     } 
 
 
@@ -119,7 +125,16 @@ public class StringProblems{ //empty constructor public StringProblems(){}
     // fizzString2(2) → "2!"
     // fizzString2(3) → "Fizz!"
     public String fizzString2(int x){
+        if (x % 3 == 0 && x % 5 == 0) {
+            return "FizzBuzz!";
+
+        } else if (x % 5 == 0 ) {
+            return "Buzz!";
+        } else if (x % 3 == 0){
+            return "Fizz!";
+        } else {
+            return x + "!";
+        }
         
-        return "";
     }
 }
