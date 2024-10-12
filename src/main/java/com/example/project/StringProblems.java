@@ -8,9 +8,10 @@ public class StringProblems{ //empty constructor public StringProblems(){}
     public boolean endsLy(String x){
         if (x.length() <= 2) { 
             return false;
-        } 
-        return x.substring(x.length() - 2).equals("ly"); 
-    }
+        } else {
+            return x.substring(x.length() - 2).equals("ly"); 
+        }
+    }   
 
     // Given two strings, append them together (known as "concatenation")
     // and return the result. However, if the concatenation creates a double-char, 
@@ -43,22 +44,17 @@ public class StringProblems{ //empty constructor public StringProblems(){}
     // deFront("abeep") -> "abeep" 
     public String deFront(String s1){
         //implement code here 
-        String end = "";
-        if (s1.length() > 0){
-            if (s1.substring(0,1).equals("a")){
-                end += "a";
-            }
-            if (s1.length() > 1 && s1.substring(1, 2).equals("b")){
-                end += "b";
-            }
+        String finalString = s1.substring(2);
 
-            end += s1.substring(end.length());
-
+        if (s1.substring(1,2).equals("b")){
+            finalString = "b" + finalString;
+        }
+        if (s1.substring(0,1).equals("a")){
+            finalString = "a" + finalString;
         }
 
-
-    } 
-
+        return finalString;
+    }   
 
     // Given a string, if the first or last chars are 'x', 
     // return the string without those 'x' chars, and otherwise 
@@ -73,12 +69,15 @@ public class StringProblems{ //empty constructor public StringProblems(){}
         if (firstLetter.equals("x") && lastLetter.equals("x")){
             return s1.substring(1, s1.length() -1 );
         }
+
         if (firstLetter.equals("x")){ 
             return s1.substring(1);
         }
+
         if (lastLetter.equals("x")){ 
             return s1.substring(0, s1.length() - 1); 
         }
+
         return s1; 
     } 
         
@@ -92,6 +91,7 @@ public class StringProblems{ //empty constructor public StringProblems(){}
     public String fizzString(String s1){ 
         String firstLetter = s1.substring(0, 1); 
         String lastLetter = s1.substring(s1.length() - 1); 
+        
         if (firstLetter.equals("f") || lastLetter.equals("b")){
 
             if (firstLetter.equals("f") && lastLetter.equals("b")){ 
@@ -120,14 +120,16 @@ public class StringProblems{ //empty constructor public StringProblems(){}
     public String fizzString2(int x){
         if (x % 3 == 0 && x % 5 == 0) {
             return "FizzBuzz!";
-
-        } else if (x % 5 == 0 ) {
-            return "Buzz!";
-        } else if (x % 3 == 0){
-            return "Fizz!";
-        } else {
-            return x + "!";
         }
+
+        if (x % 5 == 0 ) {
+            return "Buzz!";
+
+        } 
+         if (x % 3 == 0){
+            return "Fizz!";
+        } 
         
+        return x + "!";
     }
 }
